@@ -6,6 +6,7 @@ Create '.env' file to set environmental variables
    Set MONGO_URI and PORT in .env
       Example Port: 3000
       Example MONGO_URI: MONGO_URI=mongodb://localhost:27017/microservice-a
+Launch the microservice with the command 'npm run start'
 
 **How to programmatically REQUEST data:**
 The main program can send data to the microservice using standard HTTP requests. These allow you to create, update, or delete expense records.
