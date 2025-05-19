@@ -1,0 +1,24 @@
+### Create a new expense
+POST http://localhost:3000/expenses
+Content-Type: application/json
+{
+  "userId": "user1",
+  "date": "2025-05-18",
+  "category": "Food",
+  "amount": 25.50,
+  "name": "Groceries"
+}
+
+### Get all expenses for user1
+GET http://localhost:3000/expenses/user/user1
+
+### Update an existing expense (add expense id after /expenses/)
+PUT http://localhost:3000/expenses/
+Content-Type: application/json
+{
+  "amount": 30.00,
+  "name": "Groceries"
+}
+
+### Delete an expense (add expense id after /expenses/)
+DELETE http://localhost:3000/expenses/
