@@ -51,7 +51,7 @@ function isValidObjectId(id) {
  * POST /expenses
  * Body: JSON with userId, date, category, amount, name
  * Responses:
- * 201 Created - Expense successfully created
+ * 201 Created - Expense successfully created, sends back json of expense
  * 400 Bad Request - Validation error or missing fields
  */
 app.post("/expenses", async (req, res) => {
@@ -93,7 +93,7 @@ app.get("/expenses/user/:userId", async (req, res) => {
  * Params: id (MongoDB ObjectId)
  * Body: JSON with any fields to update (e.g., category, amount)
  * Responses:
- * 200 OK - Successfully updated the expense
+ * 200 OK - Successfully updated the expense, sends back json of expense
  * 400 Bad Request - Invalid ID format or validation error
  * 404 Not Found - No expense found with the given ID
  */
