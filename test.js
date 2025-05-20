@@ -20,11 +20,11 @@ async function getExpenses(userId) {
 }
 
 // update an expense
-async function updateExpense(id) {
+async function updateExpense(id, updatedValues) {
   const response = await fetch(`${baseUrl}/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ category: "Groceries", amount: 30.0 }),
+    body: JSON.stringify(updatedValues),
   });
   const data = await response.json();
   console.log("Updated:", data);
@@ -45,7 +45,7 @@ async function deleteExpense(id) {
     // example expense
     const expenseData = {
       userId: "user1",
-      date: new Date().toISOString(),
+      date: "2025-05-18",
       category: "Food",
       amount: 25.5,
       name: "Lunch",
@@ -53,8 +53,15 @@ async function deleteExpense(id) {
 
     const id = await createExpense(expenseData); // make example expense
     await getExpenses("user1"); // get expenses for user1
-    await updateExpense(id); // update example expense
+
+    updatedExpenseData = {
+      name: "Groceries",
+      amount: 30.0,
+    };
+
+    await updateExpense(id, updatedExpenseData); // update example expense
     await getExpenses("user1"); // get expenses for user1 again
+
     await deleteExpense(id); // delete expense
     await getExpenses("user1"); // get expenses for user1 again
   } catch (err) {
