@@ -14,7 +14,7 @@ async function createExpense({ userId, date, category, amount, name }) {
 
 // get expenses for a specified user
 async function getExpenses(userId) {
-  const response = await fetch(`${baseUrl}/user/${userId}`);
+  const response = await fetch(`${baseUrl}/user/${userId}`); // await fetch(`http://localhost:3000/expenses/user1`
   const data = await response.json();
   console.log("Recieved expenses:", data);
 }
@@ -42,6 +42,7 @@ async function deleteExpense(id) {
 // main
 (async () => {
   try {
+    // example expense
     const expenseData = {
       userId: "user1",
       date: new Date().toISOString(),
@@ -50,11 +51,12 @@ async function deleteExpense(id) {
       name: "Lunch",
     };
 
-    const id = await createExpense(expenseData);
-    await getExpenses("user1");
-    await updateExpense(id);
-    await getExpenses("user1");
-    await deleteExpense(id);
+    const id = await createExpense(expenseData); // make example expense
+    await getExpenses("user1"); // get expenses for user1
+    await updateExpense(id); // update example expense
+    await getExpenses("user1"); // get expenses for user1 again
+    await deleteExpense(id); // delete expense
+    await getExpenses("user1"); // get expenses for user1 again
   } catch (err) {
     console.error("Error:", err);
   }
