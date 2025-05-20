@@ -43,3 +43,5 @@ The microservice responds with JSON data, such as a single expense object after 
    const res = await fetch('http://localhost:3000/expenses/user/user1');
    const expenses = await res.json();
    console.log(expenses); // prints expenses to console
+
+![alt text](https://github.com/jlukoseOSU/MongoDB-Microservice/blob/main/Expense-Microservice-UML-Sequence-Diagram.png)
