@@ -23,7 +23,7 @@ Update an existing expense by its unique ID. You can send only the fields you wa
 Delete (DELETE /expenses/:id)
 Remove an expense by its unique ID. If the expense exists, it will be deleted and a confirmation message is returned.
 
-**Example of creating an expense using JS fetch:**
+<pre> **Example of creating an expense using JS fetch:**
    await fetch('http://localhost:3000/expenses', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -34,14 +34,14 @@ Remove an expense by its unique ID. If the expense exists, it will be deleted an
          amount: 25.50,
          name: 'Groceries'
       })
-   });
+   }); </pre>
 
 **How to programmatically RECIEVE data:**
 The microservice responds with JSON data, such as a single expense object after creation or update, or an array of expenses when reading by user ID. Error responses also return JSON with an error or message field describing the issue.
 
-**Example of reading and recieving an existing user's expenses:**
+<pre> **Example of reading and recieving an existing user's expenses:**
    const res = await fetch('http://localhost:3000/expenses/user/user1');
    const expenses = await res.json();
-   console.log(expenses); // prints expenses to console
+   console.log(expenses); // prints expenses to console </pre>
 
 ![alt text](https://github.com/jlukoseOSU/MongoDB-Microservice/blob/main/Expense-Microservice-UML-Sequence-Diagram.png)
